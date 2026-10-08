@@ -17,12 +17,11 @@
            ========================================================================== */
         html { scroll-behavior: smooth; scroll-padding-top: 84px; }
         
-        /* Ocultar elementos según el idioma activo en el tag <html> */
         :root:lang(es) .lang-en { display: none !important; }
         :root:lang(en) .lang-es { display: none !important; }
 
         /* ==========================================================================
-           1. VARIABLES BASE (APPLE STYLE - DEFAULT)
+           1. VARIABLES BASE (APPLE STYLE - CONSERVADO)
            ========================================================================== */
         :root {
             --bg-main: #FFFFFF;
@@ -55,7 +54,7 @@
         }
 
         /* ==========================================================================
-           2. VARIABLES MODO AI (CLASS .ai-mode)
+           2. VARIABLES MODO AI (FORZADO ACTIVO)
            ========================================================================== */
         body.ai-mode {
             --bg-main: #FAFCFF;
@@ -118,17 +117,12 @@
         .lang-option { cursor: pointer; padding: 2px 4px; border-radius: 4px; transition: color 0.2s ease; }
         .lang-option.active { color: var(--text-title); font-weight: 600; }
         .lang-slash { opacity: 0.3; }
-        .nav-divider { width: 1px; height: 16px; background-color: var(--divider-color); transition: background-color var(--transition-speed); }
 
-        .ai-toggle-wrapper { display: flex; align-items: center; gap: 10px; cursor: pointer; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; color: var(--text-muted); user-select: none; transition: color 0.2s ease; }
-        .switch-track { width: 42px; height: 24px; background-color: #E5E5EA; border-radius: 100px; position: relative; transition: background-color 0.3s ease; }
-        .switch-knob { width: 20px; height: 20px; background-color: #FFFFFF; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); }
-        body.ai-mode .switch-track { background-color: #6366F1; }
-        body.ai-mode .switch-knob { transform: translateX(18px); }
+        /* SWITCH DE AI OCULTO VISUALMENTE */
+        .ai-toggle-wrapper { display: none !important; }
 
         .hero { padding: 80px 0 60px; }
         .ai-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px; background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; margin-bottom: 24px; backdrop-filter: blur(10px); transition: all var(--transition-speed); }
-        body.ai-mode .ai-badge { background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(199, 210, 254, 0.8); color: #4F46E5; }
 
         .hero h1 { font-size: 4.2rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; color: var(--text-title); margin-bottom: 24px; max-width: 920px; }
         .hero h1 .gradient-text { display: inline-block; padding-bottom: 8px; margin-bottom: -8px; color: inherit; transition: color var(--transition-speed); }
@@ -163,8 +157,7 @@
 
         .card-media-dual { display: flex; flex-direction: column; gap: 16px; height: 100%; justify-content: center; }
         .media-box { background: rgba(0, 0, 0, 0.03); border-radius: 16px; height: 180px; display: flex; flex-direction: column; justify-content: space-between; padding: 0; overflow: hidden; position: relative; border: 1px solid var(--card-border); border-style: solid; }
-        .media-box-label { position: absolute; top: 12px; left: 12px; z-index: 2; background: rgba(255, 255, 255, 0.95); padding: 6px 12px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); backdrop-filter: blur(8px); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-color); display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.8rem; }
-        body.ai-mode .media-box-label { background: rgba(15, 23, 42, 0.9); color: #A5B4FC; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        .media-box-label { position: absolute; top: 12px; left: 12px; z-index: 2; background: rgba(15, 23, 42, 0.9); color: #A5B4FC; box-shadow: 0 4px 12px rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 8px; backdrop-filter: blur(8px); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.8rem; }
         .img-bg-container { width: 100%; height: 100%; background-color: #E2E8F0; background-size: cover; background-position: center top; background-repeat: no-repeat; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .media-box:hover .img-bg-container { transform: scale(1.04); }
 
@@ -196,7 +189,6 @@
         .modal-title { font-size: 3rem; font-weight: 700; letter-spacing: -0.025em; color: var(--text-title); margin-bottom: 24px; line-height: 1.1; }
         .modal-intro { font-size: 1.25rem; color: var(--text-body); line-height: 1.6; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--card-border); }
 
-        /* Bloques verticales del caso de estudio */
         .modal-section { margin-bottom: 56px; }
         .modal-section-title { font-family: var(--font-mono); color: var(--accent-color); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
         .modal-image-wrapper { width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border); background: var(--card-bg); margin-bottom: 20px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); }
@@ -219,7 +211,7 @@
         }
     </style>
 </head>
-<body id="top">
+<body id="top" class="ai-mode">
 
     <div class="ai-glow-background"></div>
 
@@ -251,8 +243,9 @@
 
                 <div class="nav-divider"></div>
 
+                <!-- Elemento reservado e inaccesible mediante CSS -->
                 <div id="ai-toggle" class="ai-toggle-wrapper" role="button" aria-label="Cambiar modo de interfaz">
-                    <span id="toggle-label">AI Mode: OFF</span>
+                    <span id="toggle-label">AI Mode: ON</span>
                     <div class="switch-track">
                         <div class="switch-knob"></div>
                     </div>
@@ -278,12 +271,12 @@
                     <span class="lang-es">Explorar Casos</span>
                     <span class="lang-en">Explore Cases</span>
                 </a>
-                <!-- CV ESPAÑOL -->
-                <a href="https://drive.google.com/file/d/1TuTduNg7r6KFq1uzxUIR4aCLoFvSnC4t/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang-es">
+                <!-- CV ESPAÑOL CORREGIDO -->
+                <a href="https://drive.google.com/file/d/1psk9f63aGER-EWTq8OYyDaG4ge3laL5V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang-es">
                     Descargar CV <span class="material-symbols-outlined">download</span>
                 </a>
-                <!-- CV INGLES -->
-                <a href="https://drive.google.com/file/d/1psk9f63aGER-EWTq8OYyDaG4ge3laL5V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang-en">
+                <!-- CV INGLES CORREGIDO -->
+                <a href="https://drive.google.com/file/d/1TuTduNg7r6KFq1uzxUIR4aCLoFvSnC4t/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang-en">
                     Download Resume <span class="material-symbols-outlined">download</span>
                 </a>
             </div>
@@ -548,12 +541,12 @@
                 </p>
 
                 <div class="contact-actions">
-                    <!-- CV ESPAÑOL -->
-                    <a href="https://drive.google.com/file/d/1TuTduNg7r6KFq1uzxUIR4aCLoFvSnC4t/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-primary lang-es">
+                    <!-- CV ESPAÑOL CORREGIDO -->
+                    <a href="https://drive.google.com/file/d/1psk9f63aGER-EWTq8OYyDaG4ge3laL5V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-primary lang-es">
                         Descargar CV <span class="material-symbols-outlined">download</span>
                     </a>
-                    <!-- CV INGLES -->
-                    <a href="https://drive.google.com/file/d/1psk9f63aGER-EWTq8OYyDaG4ge3laL5V/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-primary lang-en">
+                    <!-- CV INGLES CORREGIDO -->
+                    <a href="https://drive.google.com/file/d/1TuTduNg7r6KFq1uzxUIR4aCLoFvSnC4t/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-primary lang-en">
                         Download Resume <span class="material-symbols-outlined">download</span>
                     </a>
                     
@@ -597,7 +590,7 @@
 
     <!-- SCRIPTS INTERACTIVOS -->
     <script>
-        // Toggle Switch AI Mode
+        // Lógica interactiva preservada por compatibilidad
         const toggleBtn = document.getElementById('ai-toggle');
         const toggleLabel = document.getElementById('toggle-label');
 
@@ -618,7 +611,6 @@
                 const selectedLang = option.getAttribute('data-lang');
                 document.documentElement.lang = selectedLang;
                 
-                // Si el modal está abierto, lo volvemos a renderizar para que tome el nuevo idioma
                 if (document.getElementById('modal-overlay').classList.contains('open')) {
                     const activeProject = document.getElementById('modal-overlay').getAttribute('data-active-project');
                     if (activeProject) openModal(activeProject);
@@ -737,12 +729,10 @@
             const currentLang = document.documentElement.lang || 'es';
             modalOverlay.setAttribute('data-active-project', projectId);
 
-            // Poblar Headers
             document.getElementById('modal-tag').textContent = data.tag[currentLang];
             document.getElementById('modal-title').textContent = data.title[currentLang];
             document.getElementById('modal-intro').textContent = data.intro[currentLang];
             
-            // Construir Caso de Estudio Vertical
             const contentContainer = document.getElementById('modal-content-container');
             let htmlContent = '';
             
@@ -762,11 +752,9 @@
             });
             
             contentContainer.innerHTML = htmlContent;
-            
-            // Mostrar Modal
             modalOverlay.classList.add('open');
             document.body.style.overflow = 'hidden';
-            modalContainer.scrollTop = 0; // Reset scroll
+            modalContainer.scrollTop = 0;
         }
 
         function closeModal() {
